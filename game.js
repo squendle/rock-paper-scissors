@@ -28,3 +28,4 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
+let playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '');
