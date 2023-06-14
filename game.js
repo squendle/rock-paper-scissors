@@ -18,7 +18,7 @@
 //
 //
 
-let choices = [
+const choices = [
   "Rock",
   "Paper",
   "Scissors"
@@ -28,11 +28,8 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
-// let playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '').toLowerCase();
-// let computerSelection = getComputerChoice();
+let computerSelection = getComputerChoice();
 
-
-  
 let playerSelection = 
   prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '').toLowerCase();
     
@@ -44,33 +41,35 @@ function capitalize(playerSelection){
 }
 
 playerSelection = capitalize(playerSelection);
-let computerSelection = getComputerChoice();
-  
+
+
 function playRound() {
   if (playerSelection === "Rock" && computerSelection === "Paper") {
     return "You lose! Paper covers Rock!";
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
     return "You win! Rock destroys Scissors!";
-  } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-    return "It's a tie! Play again!";
-  } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-    return "It's a tie! Play again!";
   } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
     return "You lose! Scissors cut Paper!";
   } else if (playerSelection === "Paper" && computerSelection === "Rock") {
     return "You win! Paper covers Rock!"; 
   } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
     return "You win! Scissors cut Paper!";  
-  } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-    return "It's a tie! Play again!";
   } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-    return "You lose! Rock destroys Scissors!";  
+    return "You lose! Rock destroys Scissors!";
+  } else if (playerSelection === computerSelection) {
+    return "It's a Tie! Play again!"
   } else {
     return 'You must enter "Rock," "Paper," or "Scissors..."';  
   }
 }
 
+let roundResult = playRound();
+
+console.log("You chose " + playerSelection);
+console.log("Computer chose " + computerSelection);
+console.log(roundResult);
+
 function game(){
   
-
+  
 }
