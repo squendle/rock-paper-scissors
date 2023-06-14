@@ -28,4 +28,45 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
-let playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '');
+// let playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '').toLowerCase();
+// let computerSelection = getComputerChoice();
+
+function playRound() {
+  
+  let playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '').toLowerCase();
+    
+    function capitalize(playerSelection){
+      let first = playerSelection.charAt(0);
+      let firstUp = first.toUpperCase();
+      playerSelection = playerSelection.replace(first, firstUp);
+      return playerSelection;
+    }
+
+  playerSelection = capitalize(playerSelection);
+  let computerSelection = getComputerChoice();
+  
+  console.log("You chose " + playerSelection);
+  console.log("The Computer chose " + computerSelection);
+
+  if (playerSelection === "Rock" && computerSelection === "Paper") {
+    console.log("You lose! Paper covers Rock!");
+  } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+    console.log("You win! Rock destroys Scissors!");
+  } else if (playerSelection === "Rock" && computerSelection === "Rock") {
+    console.log("It's a tie! Play again!");
+  } else if (playerSelection === "Paper" && computerSelection === "Paper"){
+    console.log("It's a tie! Play again!");
+  } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+    console.log("You lose! Scissors cut Paper!");
+  } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+    console.log("You win! Paper covers Rock!");
+  } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+    console.log("You win! Scissors cut Paper!");
+  } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
+    console.log("It's a tie! Play again!");
+  } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+    console.log("You lose! Rock destroys Scissors!")
+  } else {
+    console.log('You must enter "Rock," "Paper," or "Scissors..."');
+  }
+}
