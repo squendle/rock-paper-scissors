@@ -28,22 +28,23 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
-let computerSelection = getComputerChoice();
-
-let playerSelection = 
-  prompt("Let's play Rock, Paper, Scissors! Enter your choice...", '').toLowerCase();
-    
-function capitalize(playerSelection){
-  let first = playerSelection.charAt(0);
-  let firstUp = first.toUpperCase();
-  playerSelection = playerSelection.replace(first, firstUp);
-  return playerSelection;
-}
-
-playerSelection = capitalize(playerSelection);
-
 
 function playRound() {
+  
+  let computerSelection = getComputerChoice();
+
+  let playerSelection = 
+  prompt("Enter your choice...", '').toLowerCase();
+  
+  function capitalize(playerSelection){
+    let first = playerSelection.charAt(0);
+    let firstUp = first.toUpperCase();
+    playerSelection = playerSelection.replace(first, firstUp);
+    return playerSelection;
+  }
+  
+  playerSelection = capitalize(playerSelection);
+  
   if (playerSelection === "Rock" && computerSelection === "Paper") {
     return "You lose! Paper covers Rock!";
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
@@ -63,13 +64,13 @@ function playRound() {
   }
 }
 
-let roundResult = playRound();
-
-console.log("You chose " + playerSelection);
-console.log("Computer chose " + computerSelection);
-console.log(roundResult);
 
 function game(){
   
-  
+  alert("Let's play Rock, Paper, Scissors!");
+
+  for (let rounds = 0; rounds < 5; rounds++) {
+  let roundResult = playRound();
+  console.log(roundResult);
+  }
 }
