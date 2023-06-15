@@ -105,6 +105,7 @@ function game(){
       console.log("Wins: " + wins + " " + "Losses: " + losses);
     }
   }
+  
   if (wins > losses) {
     console.log("You win the game!");
   } else {
