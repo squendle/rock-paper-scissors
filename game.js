@@ -70,7 +70,12 @@ function game(){
   alert("Let's play Rock, Paper, Scissors!");
 
   for (let rounds = 0; rounds < 5; rounds++) {
-  let roundResult = playRound();
-  console.log(roundResult);
+
+  let roundResult = playRound()
+  console.log(roundResult); 
+    if (roundResult === "It's a Tie! Play again!" || roundResult === 'You must enter "Rock," "Paper," or "Scissors..."') {
+      rounds--
+    }
+
   }
 }
