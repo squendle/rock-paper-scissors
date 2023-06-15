@@ -85,11 +85,15 @@ function game(){
 
 // Here are the conditionals to display the results of each round and update the round counter accordingly. Ties subtract 1 from rounds, wins/losses add 1 to rounds. Wins and Losses counter updates depending on the roundResult, and displays at the end.
 
-    if (roundResult === "It's a Tie! Play again!" || roundResult === 'You must enter "Rock," "Paper," or "Scissors..."') {
+    if (roundResult === "It's a Tie! Play again!") {
       console.log("You both chose the same!");
       console.log(roundResult);
       rounds--;
 
+    } else if (roundResult === 'You must enter "Rock," "Paper," or "Scissors..."') {
+      console.log(roundResult);
+      rounds--;
+    
     } else if (roundResult === "You lose! Paper covers Rock!") {
       console.log("You chose Rock");
       console.log("Computer chose Paper");
