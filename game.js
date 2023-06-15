@@ -71,11 +71,42 @@ function game(){
 
   for (let rounds = 0; rounds < 5; rounds++) {
 
-  let roundResult = playRound()
-  console.log(roundResult); 
+  let roundResult = playRound();
+  
     if (roundResult === "It's a Tie! Play again!" || roundResult === 'You must enter "Rock," "Paper," or "Scissors..."') {
-      rounds--
-    }
+      console.log("You both chose the same!");
+      console.log(roundResult);
+      rounds--;
 
+    } else if (roundResult === "You lose! Paper covers Rock!") {
+      console.log("You chose Rock");
+      console.log("Computer chose Paper");
+      console.log(roundResult);
+
+    } else if (roundResult === "You win! Rock destroys Scissors!") {
+      console.log("You chose Rock");
+      console.log("Computer chose Scissors");
+      console.log(roundResult);
+      
+    } else if (roundResult === "You lose! Scissors cut Paper!") {
+      console.log("You chose Paper");
+      console.log("Computer chose Scissors");
+      console.log(roundResult); 
+      
+    } else if (roundResult === "You win! Paper covers Rock!") {
+      console.log("You chose Paper");
+      console.log("Computer chose Rock");
+      console.log(roundResult); 
+      
+    } else if (roundResult === "You win! Scissors cut Paper!") {
+      console.log("You chose Scissors");
+      console.log("Computer chose Paper");
+      console.log(roundResult); 
+      
+    } else if (roundResult === "You lose! Rock destroys Scissors!") {
+      console.log("You chose Scissors");
+      console.log("Computer chose Rock");
+      console.log(roundResult); 
+    }
   }
 }
