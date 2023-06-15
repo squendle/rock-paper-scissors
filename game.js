@@ -142,3 +142,5 @@ function game(){
     console.log("You lose the game! Loser!");
   }
 }
+
+// FUTURE UPDATE! I would like for the game to end automatically if wins or losses reaches 3 before all the rounds are played. I can kind of grok how in my brain but I'm not sure how to break a loop early like that yet. More to follow as more is learned.
