@@ -53,29 +53,12 @@ h1 {
   padding: 0px;
   display: flex;
   align-items: center;
-  /* border: 1px solid red; */
+  
 }
 
-.top-box {
-  /* border: 1px solid red; */
-  width: 850px;
-  display: flex;
-  justify-content: space-between;
-  gap: 11px;
-}
-
-#player-display, #gods-display {
-  /* border: 1px solid red; */
-  display: flex;
-  min-width: 222px;
-  min-height: 77px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 33px;
-}
 
 #top-display {
-  /* border: 1px solid red; */
+  
   display: flex;
   min-width: 222px;
   min-height: 77px;
@@ -133,8 +116,8 @@ h1 {
   align-items: center;
 }
 
-#win-count {
-  /* border: 1px solid red; */
+#win-count, #loss-count {
+  
   display: flex;
   width: 30px;
   height: 30px;
@@ -144,7 +127,7 @@ h1 {
 }
 
 #results {
-  /* border: 1px solid red; */
+  
   display: flex;
   flex-direction: column;
   width: 555px; 
@@ -153,12 +136,18 @@ h1 {
   justify-content: center;
 }
 
-#loss-count {
-  /* border: 1px solid red; */
+.scores {
   display: flex;
-  width: 30px;
-  height: 30px;
-  padding: 33px;
+  flex-direction: column;
   align-items: center;
+}
+
+#player-display, #gods-display {
+  
+  display: flex;
+  min-width: 222px;
+  min-height: 77px;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 33px;
 }

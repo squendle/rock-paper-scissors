@@ -56,8 +56,7 @@ const gungnir = document.querySelector("#scissors");
 
 //DOM selectors for top message display
 
-const topDisplay = document.querySelector('#top-display');
-const topMessage = document.createElement('h2');
+const topMessage = document.querySelector('#top-display');
 const playerDisplay = document.querySelector('#player-display');
 const playerMessage = document.createElement('p');
 const godsDisplay = document.querySelector('#gods-display');
@@ -190,9 +189,9 @@ function updateScoreboard(result) {
 // this function checks for a winner after each round and updates the scoreboard and main display accordingly
 
 function checkForWin() {
-  if (winCount === 5){
+  if (winCount >= 5){
     topMessage.textContent = "YOU WIN!";
-    topDisplay.appendChild(topMessage);
+    // topDisplay.appendChild(topMessage);
     playerMessage.textContent = "";
     playerDisplay.appendChild(playerMessage);
     godsMessage.textContent = "";
@@ -204,9 +203,10 @@ function checkForWin() {
     winCountDisplay.appendChild(winCounter);
     lossCountDisplay.appendChild(lossCounter);
     resultDisplay.appendChild(playAgain);
-  } else if (lossCount === 5) {
-    topMessage.textContent = "YOU LOSE!"
-    topDisplay.appendChild(topMessage);
+    removeClickListener();
+  } else if (lossCount >= 5) {
+    topMessage.textContent = "YOU LOSE!";
+    // topDisplay.appendChild(topMessage);
     playerMessage.textContent = "";
     playerDisplay.appendChild(playerMessage);
     godsMessage.textContent = "";
@@ -218,6 +218,7 @@ function checkForWin() {
     winCountDisplay.appendChild(winCounter);
     lossCountDisplay.appendChild(lossCounter);
     resultDisplay.appendChild(playAgain);
+    removeClickListener();
   }
 };
 
@@ -229,10 +230,11 @@ function newGame(){
   lossCount = 0;
   resultDisplay.removeChild(wldMessage);
   resultDisplay.removeChild(playAgain);
-  topDisplay.removeChild(topMessage);
+  topMessage.textContent = "Prove your worth! Win 5 battles!";
 };
 
 //DOM event listeners to play rounds.
+
 mjolnir.addEventListener("click", function() {
   computerSelection = getComputerChoice();
   playerSelection = "Mjolnir"
@@ -268,3 +270,39 @@ gungnir.addEventListener("click", function() {
   updateScoreboard(result);
   checkForWin();
 });
+
+function removeClickListener(){
+  mjolnir.removeEventListener("click", function(){
+    computerSelection = getComputerChoice();
+    playerSelection = "Mjolnir"
+    result = playRound(playerSelection);
+    playerMessage.textContent = `You chose ${playerSelection}`;
+    playerDisplay.appendChild(playerMessage);
+    godsMessage.textContent = `The gods chose ${computerSelection}`;
+    godsDisplay.appendChild(godsMessage);
+    updateScoreboard(result);
+    checkForWin();
+    })
+  fiskegarn.removeEventListener("click", function(){
+    computerSelection = getComputerChoice();
+    playerSelection = "Fiskegarn"
+    result = playRound(playerSelection);
+    playerMessage.textContent = `You chose ${playerSelection}`;
+    playerDisplay.appendChild(playerMessage);
+    godsMessage.textContent = `The gods chose ${computerSelection}`;
+    godsDisplay.appendChild(godsMessage);
+    updateScoreboard(result);
+    checkForWin();
+    })
+  gungnir.removeEventListener("click", function(){
+    computerSelection = getComputerChoice();
+    playerSelection = "Gungnir"
+    result = playRound(playerSelection);
+    playerMessage.textContent = `You chose ${playerSelection}`;
+    playerDisplay.appendChild(playerMessage);
+    godsMessage.textContent = `The gods chose ${computerSelection}`;
+    godsDisplay.appendChild(godsMessage);
+    updateScoreboard(result);
+    checkForWin();
+    })
+};
