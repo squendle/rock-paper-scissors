@@ -32,14 +32,6 @@ function removeDivColor(e) {
   }
 };
 
-
-
-
-
-function removeImgColor(e) {
-
-;}
-
 choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeDivColor));
 choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeDivColor));
 
