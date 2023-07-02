@@ -1,5 +1,6 @@
 const logo = document.querySelector("#logo");
-const navItems = document.querySelectorAll(".nav-items");
+const links = document.querySelectorAll("a");
+const btns = document.querySelectorAll(".btns");
 
 function changeLogoColor(e){
   logo.setAttribute("src", "img/logo2.png");
@@ -8,6 +9,14 @@ function changeLogoColor(e){
 function removeLogoColor(e){
   logo.setAttribute("src", "img/logo.png");
 };
+
+function ghostButton(e){
+ this.classList.add("ghost");
+}
+
+function removeGhostButton(e){
+  this.classList.remove("ghost");
+}
 
 function changeItemColor(e) {
   this.classList.add("purp-text");
@@ -19,5 +28,7 @@ function removeItemColor(e) {
 
 logo.addEventListener("mouseover", changeLogoColor);
 logo.addEventListener("mouseout", removeLogoColor);
-navItems.forEach(item => item.addEventListener("mouseover", changeItemColor));
-navItems.forEach(item => item.addEventListener("mouseout", removeItemColor));
+links.forEach(item => item.addEventListener("mouseover", changeItemColor));
+links.forEach(item => item.addEventListener("mouseout", removeItemColor));
+btns.forEach(item => item.addEventListener("mouseover", ghostButton));
+btns.forEach(item => item.addEventListener("mouseout", removeGhostButton));

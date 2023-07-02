@@ -49,22 +49,22 @@ body {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
   padding: 0px;
   display: flex;
   align-items: center;
+  margin-bottom: 0;
   
 }
-
 
 #top-display {
   
   display: flex;
   min-width: 222px;
-  min-height: 77px;
+  min-height: 55px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 33px;
+  margin-bottom: 22px;
 }
 
 .game {
@@ -79,7 +79,7 @@ h1 {
   flex: 1;
   flex-wrap: wrap;
   color: #f2ff00;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .choice {
@@ -88,17 +88,17 @@ h1 {
   flex: auto;
   align-items: center;
   justify-content: center;
-  border: solid 7px #f2ff00;
+  border: solid 4px #f2ff00;
   border-radius: 33px;
   padding: 33px;
-  width: 222px;
-  height: 222px;
-  margin: 0 44px;
+  width: 200px;
+  height: 200px;
+  margin: 0 33px;
   text-align: center;
 }
 
 .hovered {
-  border: solid 7px #bc19eb;
+  border: solid 4px #bc19eb;
 }
 
 .purp-text {
@@ -106,13 +106,12 @@ h1 {
 }
 
 .choice img {
-  height: 122px;
+  height: 111px;
 }
 
 .results-box {
   display: flex;
   justify-content: space-evenly;
-  gap: 22px;
   align-items: center;
 }
 
@@ -121,7 +120,7 @@ h1 {
   display: flex;
   width: 30px;
   height: 30px;
-  padding: 33px;
+  padding: 11px;
   align-items: center;
   justify-content: center;
 }
@@ -130,8 +129,8 @@ h1 {
   
   display: flex;
   flex-direction: column;
-  width: 555px; 
-  height: 67px;
+  width: 444px; 
+  height: 55px;
   align-items: center;
   justify-content: center;
 }
@@ -146,8 +145,7 @@ h1 {
   
   display: flex;
   min-width: 222px;
-  min-height: 77px;
+  min-height: 33px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 33px;
 }
