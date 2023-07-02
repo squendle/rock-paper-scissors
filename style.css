@@ -14,11 +14,11 @@ body, html {
   color: #f2ff00;
   justify-content: space-between;
   align-items: center;
-  padding: 24px;
+  padding: 11px;
 }
 
 #logo {
-  height: 100px;
+  height: 88px;
 }
 
 ul {

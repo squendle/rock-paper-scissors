@@ -2,22 +2,22 @@
 
 const choiceDivs = document.querySelectorAll(".choice");
 const choiceText = document.querySelectorAll("div.choiceBox > p");
-const gungnir = document.querySelector("#gungnir");
-const mjolnir = document.querySelector("#mjolnir");
-const fiskegarn = document.querySelector("#fiskegarn");
+const gungnirImg = document.querySelector("#gungnir");
+const mjolnirImg = document.querySelector("#mjolnir");
+const fiskegarnImg = document.querySelector("#fiskegarn");
 
 function changeChoiceColor(e) {
   this.classList.add('hovered');
   if (choiceDivs[0].classList.contains('hovered')) {
-      mjolnir.setAttribute("src", "img/mjolnir2.png");
+      mjolnirImg.setAttribute("src", "img/mjolnir2.png");
       choiceText[0].classList.add('purp-text');
     }
   if (choiceDivs[1].classList.contains('hovered')) {
-    fiskegarn.setAttribute("src", "img/fiskegarn2.png");
+    fiskegarnImg.setAttribute("src", "img/fiskegarn2.png");
     choiceText[1].classList.add('purp-text');
   }
   if (choiceDivs[2].classList.contains('hovered')) {
-    gungnir.setAttribute("src", "img/gungnir2.png");
+    gungnirImg.setAttribute("src", "img/gungnir2.png");
     choiceText[2].classList.add('purp-text');
   }
 };
@@ -25,15 +25,15 @@ function changeChoiceColor(e) {
 function removeChoiceColor(e) {
   this.classList.remove('hovered');
   if (!choiceDivs[0].classList.contains('hovered')) {
-    mjolnir.setAttribute("src", "img/mjolnir.png");
+    mjolnirImg.setAttribute("src", "img/mjolnir.png");
     choiceText[0].classList.remove('purp-text');
   }
   if (!choiceDivs[1].classList.contains('hovered')) {
-  fiskegarn.setAttribute("src", "img/fiskegarn.png");
+  fiskegarnImg.setAttribute("src", "img/fiskegarn.png");
   choiceText[1].classList.remove('purp-text');
   }
   if (!choiceDivs[2].classList.contains('hovered')) {
-  gungnir.setAttribute("src", "img/gungnir.png");
+  gungnirImg.setAttribute("src", "img/gungnir.png");
   choiceText[2].classList.remove('purp-text');
   }
 };
@@ -44,112 +44,75 @@ choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeChoiceCol
 
 // My Rock Paper Scissors Game
 
+// array of possible computer choices
 const choices = [
   "rock",
   "paper",
   "scissors"
 ];
 
+//the DOM selectors for the divs containing the choices and results
+const mjolnir = document.querySelector("#rock");
+const fiskegarn = document.querySelector("#paper");
+const gungnir = document.querySelector("#scissors");
+
+const results = document.querySelector("#results");
+const wldDisplay = document.createElement("h2");
+
+//wld return statements
+const winRS = "You win! Mjolnir shatters Gungnir!"
+const winPR = "You win! Fiskegarn entangles Mjolnir!"
+const winSP = "You win! Gungnir slices Fiskegarn!"
+const loseRP = "You lose! Fiskegarn entangles Mjolnir!"
+const losePS = "You lose! Gungnir slices Fiskegarn!"
+const loseSR = "You lose! Mjolnir shatters Gungnir!"
+const draw = "It's a draw! Return to battle!"
+
+// computerSelection random picker function
 function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
-}
+};
 
 // This is the function for a single round of RPS.
-function playRound() {
-  
+function playRound(playerSelection) {
+
   let computerSelection = getComputerChoice();
- 
-  let playerSelection = 
-  prompt("Enter your choice...", '').toLowerCase();
- 
-  if (playerSelection === "rock" && computerSelection === "paper") {
-    return "You lose! Paper covers Rock!";
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return "You win! Rock destroys Scissors!";
-  } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return "You lose! Scissors cut Paper!";
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "You win! Paper covers Rock!"; 
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return "You win! Scissors cut Paper!";  
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return "You lose! Rock destroys Scissors!";
+
+  if (playerSelection === 'rock' && computerSelection === 'paper'){
+    wldDisplay.textContent = loseRP;
+    results.appendChild(wldDisplay);
+  } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+    wldDisplay.textContent = winRS;
+    results.appendChild(wldDisplay);
+  } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+    wldDisplay.textContent = winPR;
+    results.appendChild(wldDisplay);
+  } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    wldDisplay.textContent = losePS;
+    results.appendChild(wldDisplay);
+  } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+    wldDisplay.textContent = loseSP;
+    results.appendChild(wldDisplay);
+  } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    wldDisplay.textContent = winSP;
+    results.appendChild(wldDisplay);
   } else if (playerSelection === computerSelection) {
-    return "It's a Tie! Play again!"
+    wldDisplay.textContent = draw;
+    results.appendChild(wldDisplay);
   } else {
-    return 'You must enter "Rock," "Paper," or "Scissors..."';  
-  }
-}
+    wldDisplay.textContent = "";
+    results.appendChild(wldDisplay);
+  };
 
-// Here's the actual game function to play 5 rounds.
-// function game(){
+};
 
-//   alert("Let's play Rock, Paper, Scissors! Best of 5 wins...");
-//   let wins = 0;
-//   let losses = 0;
-
-//   for (let rounds = 0; rounds < 5; rounds++) {
-
-//   let roundResult = playRound();
-
-//     if (roundResult === "It's a Tie! Play again!") {
-//       console.log("You both chose the same!");
-//       console.log(roundResult);
-//       rounds--;
-
-//     } else if (roundResult === 'You must enter "Rock," "Paper," or "Scissors..."') {
-//       console.log(roundResult);
-//       rounds--;
-    
-//     } else if (roundResult === "You lose! Paper covers Rock!") {
-//       console.log("You chose Rock");
-//       console.log("Computer chose Paper");
-//       console.log(roundResult);
-//       losses++;
-//       console.log("Wins: " + wins + " " + "Losses: " + losses);
-
-//     } else if (roundResult === "You win! Rock destroys Scissors!") {
-//       console.log("You chose Rock");
-//       console.log("Computer chose Scissors");
-//       console.log(roundResult);
-//       wins++;
-//       console.log("Wins: " + wins + " " + "Losses: " + losses);
-      
-//     } else if (roundResult === "You lose! Scissors cut Paper!") {
-//       console.log("You chose Paper");
-//       console.log("Computer chose Scissors");
-//       console.log(roundResult); 
-//       losses++;
-//       console.log("Wins: " + wins + " " + "Losses: " + losses);
-      
-//     } else if (roundResult === "You win! Paper covers Rock!") {
-//       console.log("You chose Paper");
-//       console.log("Computer chose Rock");
-//       console.log(roundResult); 
-//       wins++;
-//       console.log("Wins: " + wins + " " + "Losses: " + losses);
-      
-//     } else if (roundResult === "You win! Scissors cut Paper!") {
-//       console.log("You chose Scissors");
-//       console.log("Computer chose Paper");
-//       console.log(roundResult); 
-//       wins++;
-//       console.log("Wins: " + wins + " " + "Losses: " + losses);
-      
-//     } else if (roundResult === "You lose! Rock destroys Scissors!") {
-//       console.log("You chose Scissors");
-//       console.log("Computer chose Rock");
-//       console.log(roundResult); 
-//       losses++;
-//       console.log("Wins: " + wins + " " + "Losses: " + losses);
-//     }
-//   }
-
-//   if (wins > losses) {
-//     console.log("You win the game!");
-//   } else {
-//     console.log("You lose the game! Loser!");
-//   }
-// }
-
-// FUTURE UPDATE! I would like for the game to end automatically if wins or losses reaches 3 before all the rounds are played. I can kind of grok how in my brain but I'm not sure how to break a loop early like that yet. More to follow as more is learned.
+//DOM event listeners to play rounds.
+mjolnir.addEventListener("click", function() {
+  playRound("rock")
+});
+fiskegarn.addEventListener("click", function () {
+  playRound("paper")
+});
+gungnir.addEventListener("click", function() {
+  playRound("scissors")
+});
