@@ -35,6 +35,10 @@ li {
   font-size: 24px;
   font-weight: 800;
 }
+li a {
+  color: #f2ff00;
+  text-decoration: none;
+}
 
 body {
   background-color: black;
@@ -72,9 +76,9 @@ h1 {
   border: solid 7px #f2ff00;
   border-radius: 33px;
   padding: 33px;
-  width: 333px;
-  height: 333px;
-  margin: 0 32px;
+  width: 222px;
+  height: 222px;
+  margin: 0 44px;
   text-align: center;
 }
 
@@ -87,6 +91,6 @@ h1 {
 }
 
 .choice img {
-  height: 200px;
+  height: 144px;
 }
 
