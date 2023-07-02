@@ -58,7 +58,10 @@ const gungnir = document.querySelector("#scissors");
 
 const topDisplay = document.querySelector('#top-display');
 const topMessage = document.createElement('h2');
-
+const playerDisplay = document.querySelector('#player-display');
+const playerMessage = document.createElement('p');
+const godsDisplay = document.querySelector('#gods-display');
+const godsMessage = document.createElement('p');
 //DOM selectors for results and scoreboard
 
 const resultDisplay = document.querySelector("#results");
@@ -93,6 +96,7 @@ function getComputerChoice() {
 };
 
 let computerSelection;
+let playerSelection;
 
 // array of possible computer choices
 const choices = [
@@ -189,6 +193,10 @@ function checkForWin() {
   if (winCount === 5){
     topMessage.textContent = "YOU WIN!";
     topDisplay.appendChild(topMessage);
+    playerMessage.textContent = "";
+    playerDisplay.appendChild(playerMessage);
+    godsMessage.textContent = "";
+    godsDisplay.appendChild(godsMessage);
     wldMessage.textContent = "You have pleased the gods! Odin shall welcome you to Valhalla!";
     resultDisplay.appendChild(wldMessage);
     winCounter.textContent = "";
@@ -196,10 +204,13 @@ function checkForWin() {
     winCountDisplay.appendChild(winCounter);
     lossCountDisplay.appendChild(lossCounter);
     resultDisplay.appendChild(playAgain);
-    resetGame();
   } else if (lossCount === 5) {
     topMessage.textContent = "YOU LOSE!"
     topDisplay.appendChild(topMessage);
+    playerMessage.textContent = "";
+    playerDisplay.appendChild(playerMessage);
+    godsMessage.textContent = "";
+    godsDisplay.appendChild(godsMessage);
     wldMessage.textContent = "The gods are displeased. Your shame shall follow you forever in Hel.";
     resultDisplay.appendChild(wldMessage);
     winCounter.textContent = "";
@@ -207,16 +218,9 @@ function checkForWin() {
     winCountDisplay.appendChild(winCounter);
     lossCountDisplay.appendChild(lossCounter);
     resultDisplay.appendChild(playAgain);
-    resetGame();
   }
 };
 
-//reset game function
-
-function resetGame(){
-  winCount = 0;
-  lossCount = 0;
-};
 
 //new game function
 
@@ -231,19 +235,36 @@ function newGame(){
 //DOM event listeners to play rounds.
 mjolnir.addEventListener("click", function() {
   computerSelection = getComputerChoice();
-  result = playRound("Mjolnir");
+  playerSelection = "Mjolnir"
+  result = playRound(playerSelection);
+  playerMessage.textContent = `You chose ${playerSelection}`;
+  playerDisplay.appendChild(playerMessage);
+  godsMessage.textContent = `The gods chose ${computerSelection}`;
+  godsDisplay.appendChild(godsMessage);
   updateScoreboard(result);
   checkForWin();
 });
+
 fiskegarn.addEventListener("click", function () {
   computerSelection = getComputerChoice();
-  result = playRound("Fiskegarn");
+  playerSelection = "Fiskegarn"
+  result = playRound(playerSelection);
+  playerMessage.textContent = `You chose ${playerSelection}`;
+  playerDisplay.appendChild(playerMessage);
+  godsMessage.textContent = `The gods chose ${computerSelection}`;
+  godsDisplay.appendChild(godsMessage);
   updateScoreboard(result);
   checkForWin();
 });
+
 gungnir.addEventListener("click", function() {
   computerSelection = getComputerChoice();
-  result = playRound("Gungnir");
+  playerSelection = "Gungnir"
+  result = playRound(playerSelection);
+  playerMessage.textContent = `You chose ${playerSelection}`;
+  playerDisplay.appendChild(playerMessage);
+  godsMessage.textContent = `The gods chose ${computerSelection}`;
+  godsDisplay.appendChild(godsMessage);
   updateScoreboard(result);
   checkForWin();
 });
