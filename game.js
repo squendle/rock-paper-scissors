@@ -1,3 +1,23 @@
+// Changing colors of choice images and div outlines on mouse hover
+
+const choiceDivs = document.querySelectorAll(".choice");
+const gungnir = document.querySelector("#gungnir");
+const mjolnir = document.querySelector("#mjolnir");
+const fiskegarn = document.querySelector("fiskegarn");
+
+function changeColor(e) {
+  this.classList.add("hovered");
+};
+
+function removeColorChange(e) {
+  this.classList.remove('hovered');
+}
+
+choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeColor));
+choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeColorChange));
+
+
+
 // My Rock Paper Scissors Game
 
 const choices = [

@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  background-color: #6b1584;
+  color: #f2ff00;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+#logo {
+  height: 100px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  padding-left: 24px;
+  padding-right: 24px; 
+  font-size: 24px;
+}
+
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  align-items: center;
+  justify-content: center;
+  border: solid 3px #f2ff00;
+  padding: 33px;
+  min-width: 333px;
+  max-width: 333px;
+  margin: 0 32px;
+  text-align: center;
+}
+
+.hovered {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  align-items: center;
+  justify-content: center;
+  border: solid 3px #bc19eb;
+  padding: 33px;
+  min-width: 333px;
+  max-width: 333px;
+  margin: 0 32px;
+  text-align: center;
+}
+
+.choice img {
+  height: 200px;
+}
+
