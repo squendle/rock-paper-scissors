@@ -3,18 +3,47 @@
 const choiceDivs = document.querySelectorAll(".choice");
 const gungnir = document.querySelector("#gungnir");
 const mjolnir = document.querySelector("#mjolnir");
-const fiskegarn = document.querySelector("fiskegarn");
+const fiskegarn = document.querySelector("#fiskegarn");
+const choiceImgs = [mjolnir, gungnir, fiskegarn];
 
-function changeColor(e) {
-  this.classList.add("hovered");
+function changeDivColor(e) {
+  this.classList.add('hovered');
+  if (choiceDivs[0].classList.contains('hovered')) {
+      mjolnir.setAttribute("src", "img/mjolnir2.png");
+    }
+  if (choiceDivs[1].classList.contains('hovered')) {
+    fiskegarn.setAttribute("src", "img/fiskegarn2.png");
+  }
+  if (choiceDivs[2].classList.contains('hovered')) {
+    gungnir.setAttribute("src", "img/gungnir2.png");
+  }
 };
 
-function removeColorChange(e) {
+function removeDivColor(e) {
   this.classList.remove('hovered');
-}
+  if (!choiceDivs[0].classList.contains('hovered')) {
+    mjolnir.setAttribute("src", "img/mjolnir.png");
+  }
+  if (!choiceDivs[1].classList.contains('hovered')) {
+  fiskegarn.setAttribute("src", "img/fiskegarn.png");
+  }
+  if (!choiceDivs[2].classList.contains('hovered')) {
+  gungnir.setAttribute("src", "img/gungnir.png");
+  }
+};
 
-choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeColor));
-choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeColorChange));
+
+
+
+
+function removeImgColor(e) {
+
+;}
+
+choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeDivColor));
+choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeDivColor));
+
+
 
 
 
