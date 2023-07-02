@@ -1,39 +1,45 @@
-// Changing colors of choice images and div outlines on mouse hover
+// Changing colors of choice images, text, and div outlines on mouseover
 
 const choiceDivs = document.querySelectorAll(".choice");
+const choiceText = document.querySelectorAll("div.choiceBox > p")
 const gungnir = document.querySelector("#gungnir");
 const mjolnir = document.querySelector("#mjolnir");
 const fiskegarn = document.querySelector("#fiskegarn");
-const choiceImgs = [mjolnir, gungnir, fiskegarn];
 
-function changeDivColor(e) {
+function changeChoiceColor(e) {
   this.classList.add('hovered');
   if (choiceDivs[0].classList.contains('hovered')) {
       mjolnir.setAttribute("src", "img/mjolnir2.png");
+      choiceText[0].classList.add('purp-text');
     }
   if (choiceDivs[1].classList.contains('hovered')) {
     fiskegarn.setAttribute("src", "img/fiskegarn2.png");
+    choiceText[1].classList.add('purp-text');
   }
   if (choiceDivs[2].classList.contains('hovered')) {
     gungnir.setAttribute("src", "img/gungnir2.png");
+    choiceText[2].classList.add('purp-text');
   }
 };
 
-function removeDivColor(e) {
+function removeChoiceColor(e) {
   this.classList.remove('hovered');
   if (!choiceDivs[0].classList.contains('hovered')) {
     mjolnir.setAttribute("src", "img/mjolnir.png");
+    choiceText[0].classList.remove('purp-text');
   }
   if (!choiceDivs[1].classList.contains('hovered')) {
   fiskegarn.setAttribute("src", "img/fiskegarn.png");
+  choiceText[1].classList.remove('purp-text');
   }
   if (!choiceDivs[2].classList.contains('hovered')) {
   gungnir.setAttribute("src", "img/gungnir.png");
+  choiceText[2].classList.remove('purp-text');
   }
 };
 
-choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeDivColor));
-choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeDivColor));
+choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeChoiceColor));
+choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeChoiceColor));
 
 
 

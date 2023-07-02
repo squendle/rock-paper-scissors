@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
 .header {
@@ -15,14 +21,6 @@
   height: 100px;
 }
 
-body {
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
 ul {
   padding: 0;
   margin: 0;
@@ -35,8 +33,20 @@ li {
   padding-left: 24px;
   padding-right: 24px; 
   font-size: 24px;
+  font-weight: 800;
 }
 
+body {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+}
 
 .game {
   display: flex;
@@ -44,11 +54,13 @@ li {
   align-items: center;
 }
 
-.choices {
+.container {
   display: flex;
   justify-content: space-evenly;
   flex: 1;
   flex-wrap: wrap;
+  color: #f2ff00;
+  font-size: 28px;
 }
 
 .choice {
@@ -57,26 +69,21 @@ li {
   flex: auto;
   align-items: center;
   justify-content: center;
-  border: solid 3px #f2ff00;
+  border: solid 7px #f2ff00;
+  border-radius: 33px;
   padding: 33px;
-  min-width: 333px;
-  max-width: 333px;
+  width: 333px;
+  height: 333px;
   margin: 0 32px;
   text-align: center;
 }
 
 .hovered {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-  align-items: center;
-  justify-content: center;
-  border: solid 3px #bc19eb;
-  padding: 33px;
-  min-width: 333px;
-  max-width: 333px;
-  margin: 0 32px;
-  text-align: center;
+  border: solid 7px #bc19eb;
+}
+
+.purp-text {
+  color: #bc19eb;
 }
 
 .choice img {
