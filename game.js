@@ -1,7 +1,7 @@
 // Changing colors of choice images, text, and div outlines on mouseover
 
 const choiceDivs = document.querySelectorAll(".choice");
-const choiceText = document.querySelectorAll("div.choiceBox > p")
+const choiceText = document.querySelectorAll("div.choiceBox > p");
 const gungnir = document.querySelector("#gungnir");
 const mjolnir = document.querySelector("#mjolnir");
 const fiskegarn = document.querySelector("#fiskegarn");
@@ -40,9 +40,6 @@ function removeChoiceColor(e) {
 
 choiceDivs.forEach(choice => choice.addEventListener("mouseover", changeChoiceColor));
 choiceDivs.forEach(choice => choice.addEventListener("mouseout", removeChoiceColor));
-
-
-
 
 
 // My Rock Paper Scissors Game
