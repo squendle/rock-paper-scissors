@@ -29,20 +29,25 @@
     <h1>
       Welcome, Warrior.<br>Choose your weapon wisely.
     </h1>
-    <div class="container">
-      <div class="choiceBox">
+    
+    <div id="player-display"></div>
+    <div id="top-display"></div>
+    <div id="gods-display"></div>
+
+    <div class="choices">
+      <div class="choice-box">
         <div class="choice" id="rock">
         <img id="mjolnir" src="img/mjolnir.png">
       </div>
       <p><strong>Mjolnir</strong><br>Thor's Hammer</p>
       </div>
-      <div class="choiceBox">
+      <div class="choice-box">
         <div class="choice" id="paper">
           <img id="fiskegarn" src="img/fiskegarn.png">
         </div>
         <p><strong>Fiskegarn</strong><br>Loki's Fishing Net</p>
       </div>
-      <div class="choiceBox">
+      <div class="choice-box">
         <div class="choice" id="scissors">
           <img id="gungnir" src="img/gungnir.png">
         </div>     
@@ -50,8 +55,11 @@
       </div>
     </div>
 
-    <div id="results">
-      <!-- javascript game display stuff will end up here -->    
+    <div class="results-box">
+      <!-- javascript game display stuff will end up here -->
+      <div id="win-count"></div>
+      <div id="results"></div>
+      <div id="loss-count"></div>    
     </div>
 
   </div>
